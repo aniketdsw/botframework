@@ -1,0 +1,15 @@
+{
+  "name": "botframework",
+  "version": "1.0.0",
+  "description": "Test Bot",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aniket Kumar",
+  "license": "ISC"
+}
