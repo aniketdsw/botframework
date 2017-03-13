@@ -33,9 +33,11 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 });
   //get index
 
-restify.get('/', function(req, res){
- res.sendFile(__dirname + '/index.html');
-});
+
+server.get(/.*/, restify.serveStatic({
+	'directory': '.',
+	'default': 'index.html'
+}));
 
 
 // Create chat bot
