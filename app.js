@@ -11,15 +11,18 @@ var connector = new builder.ChatConnector({
 });
 var bot = new builder.UniversalBot(connector);
 
+
 app.get('/', function(req, res){
  res.sendFile(__dirname + '/index.html');
 });
 io.on('connection', function(socket){
  socket.on('chat message', function(msg){
- 
- io.emit('chat message', mss());
- 
+     bot.dialog('/', function (msg) {
+    io.emit('chat message', msg);
 });
+ //io.emit('chat message', mss());
+ 
+ });
 });
 http.listen(port, function(){
  console.log('listening on ' + port);
@@ -28,18 +31,21 @@ http.listen(port, function(){
 
 
 
-function mss(){
+//function mss(msg){
+//var connector = new builder.ChatConnector({
+   // appId: process.env.MICROSOFT_APP_ID,
+  //  appPassword: process.env.MICROSOFT_APP_PASSWORD
+//});
+//var bot = new builder.UniversalBot(connector);
 //server.post('/', connector.listen());
 
 //=========================================================
 // Bots Dialogs
 //=========================================================
 
-bot.dialog('/', function (session) {
-    session.send("Hello World");
-});
 
-}
+
+//}
 
 
 
