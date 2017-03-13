@@ -4,6 +4,7 @@
   "description": "Test Bot",
   "main": "index.js",
   "dependencies": {
+    "botbuilder": "^3.7.0",
     "express": "^4.15.2",
     "socket.io": "^1.7.3"
   },
